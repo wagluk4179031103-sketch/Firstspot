@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESC Countdown Wien</title>
+
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        height: 100vh;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+       
+        background-image: url("data:image/jpeg;base64,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");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        
+        position: relative;
+    }
+
+    body::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.45);
+    }
+
+    .content {
+        position: relative;
+        z-index: 5;
+        padding: 20px 40px;
+        background: rgba(0,0,0,0.35);
+        border-radius: 15px;
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+
+    .time {
+        font-size: 3.2rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+
+    .label {
+        font-size: 1rem;
+        margin-top: 6px;
+        opacity: 0.9;
+    }
+</style>
+</head>
+
+<body>
+<div class="content">
+    <h1>Countdown zum Eurovision Song Contest in Wien</h1>
+
+    <div class="time" id="timeDisplay">--:--</div>
+    <div class="label">Stunden : Minuten</div>
+</div>
+
+<script>
+// ================================================
+// Ziel-Datum (ESC Wien)
+// Beispiel: 10. Mai 2026, 21:00 Uhr Wien
+// ================================================
+const target = new Date("2026-05-10T21:00:00+02:00");
+
+function updateCountdown() {
+    const now = new Date();
+    let diff = target - now;
+
+    if (diff <= 0) {
+        document.getElementById("timeDisplay").textContent = "00:00";
+        return;
+    }
+
+    let totalMinutes = Math.floor(diff / 1000 / 60);
+    let hours = Math.floor(totalMinutes / 60);
+    let minutes = totalMinutes % 60;
+
+    if (hours < 0) hours = 0;
+    if (minutes < 0) minutes = 0;
+
+    document.getElementById("timeDisplay").textContent =
+        String(hours).padStart(2, "0") + ":" +
+        String(minutes).padStart(2, "0");
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
