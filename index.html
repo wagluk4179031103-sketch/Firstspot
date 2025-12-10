@@ -69,7 +69,7 @@
 
 
     <div class="time" id="timeDisplay">--:--</div>
-    <div class="label">Tage : Stunden : Minuten</div>
+    <div class="label">Tage : Stunden : Minuten : Sekunden</div>
 </div>
 
 <script>
@@ -88,17 +88,20 @@ function updateCountdown() {
         return;
     }
 
-    let totalMinutes = Math.floor(diff / 1000 / 60);
+    let totalSeconds = Math.floor(diff / 1000);
+    let totalMinutes = Math.floor(totalSeconds / 60);
     let totalHours = Math.floor(totalMinutes / 60);
     let days = Math.floor(totalHours / 24);
     let hours = totalHours % 24;
     let minutes = totalMinutes % 60;
+    let seconds = totalSeconds % 60;
 
     
     document.getElementById("timeDisplay").textContent =
         String(days).padStart(2, "0") + ":" +
         String(hours).padStart(2, "0") + ":" +
-        String(minutes).padStart(2, "0");
+        String(minutes).padStart(2, "0") + ":" +
+        String(seconds).padStart(2, "0");
 }
 
 updateCountdown();
